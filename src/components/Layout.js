@@ -4,7 +4,7 @@ import Footer from './Footer';
 export default class Layout extends React.Component{
   constructor() {
     super();
-    this.state = {name:"Anushree"};
+    this.state = {title:"aefaegf"};
   }
 
   render(){
@@ -13,8 +13,8 @@ export default class Layout extends React.Component{
     },5000);
       return(
       <div>
-      {this.state.name}
-        <Header/>
+        <Header title={this.state.title}/>
+        <Header title={"something else"}/>
         <Footer/>
       </div>
       );

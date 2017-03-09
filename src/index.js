@@ -1,15 +1,15 @@
 // ./src/index.jsx
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import {Router, Route} from 'react-router';
-class Home extends Component {
-    render(){
-        return (<h1>Hi</h1>);
-    }
-}
+import {Router, Route,hashHistory} from 'react-router';
+import Home from './components/Home';
+import About from './components/About';
+import Car from './components/Car';
 
 render(
-  <Router>
-  <Route path="/" component={Home}/>
+  <Router history={hashHistory}>
+    <Route path="/" component={Home}/>
+    <Route path="/cars" component={Car}/>
+    <Route path="/about" component={About}/>
   </Router>,
    document.getElementById('container'));

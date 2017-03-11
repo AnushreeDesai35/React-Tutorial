@@ -5,17 +5,18 @@ import {Router, Route,hashHistory} from 'react-router';
 //import Home from './components/Home';
 import About from './components/About';
 import Car from './components/Car';
+import AddPagination from './components/AddPagination';
 import $ from 'jquery';
 
 class Home extends Component {
 
   constructor(){
+    alert("constructor");
     super();
     this.state={
-      jsonData:""
+      jsonData:[],
     };
     this.datarow = this.datarow.bind(this);
-    this.handleState = this.handleState.bind(this);
   }
 
   componentDidMount()
@@ -38,14 +39,19 @@ return(
 }
 
     render(){
-      let myData = this.state.jsonData;
-      console.log('myData : '+myData);
-    /*  let jsonData = [
+      alert("render");
+      //let myData = this.state.jsonData;
+      //console.log('myData : '+myData);
+      let jsonData = [
     { name : 'Anushree', id: '1'},
     { name : 'Syed', id : '2' },
     { name : 'Sneha', id : '3' },
-    { name : 'Hemant', id : '4' }
-];*/
+    { name : 'Hemant', id : '4' },
+    { name : 'Divyesh', id: '5'},
+    { name : 'Shreya', id : '6' },
+    { name : 'Hiral', id : '7' },
+    { name : 'Priyansh', id : '8' }
+];
 //console.log(myData);
 return(
 <div>
@@ -57,9 +63,11 @@ return(
       </tr>
     </thead>
     <tbody>
-        {myData.persons.map(this.datarow)}
+        {jsonData.map(this.datarow)}
     </tbody>
 </table>
+
+<AddPagination/>
 </div>
 );
 }

@@ -18,7 +18,11 @@ class Home extends Component {
     };
     this.datarow = this.datarow.bind(this);
   }
-
+displayData(page){
+  console.log("page : "+page);
+  this.setState({page});
+  console.log("state page : "+this.state.page);
+}
   componentDidMount()
   {
     alert("componentDidMount")
@@ -67,7 +71,7 @@ return(
     </tbody>
 </table>
 
-<AddPagination/>
+<AddPagination displayData={this.displayData.bind(this)}/>
 </div>
 );
 }

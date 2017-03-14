@@ -9,18 +9,16 @@ class AddPagination extends Component{
     alert("constructor");
     super();
     this.state={
-      current:3,
+      current:5,
     };
     this.onChange = this.onChange.bind(this);
   }
   onChange(page) {
     console.log(page);
-    this.setState({
-      current: page,
-    });
+    this.props.displayData(page);
   }
   render() {
-    return <Pagination onChange={this.onChange} current={this.state.current} total={25} />;
+    return <Pagination onChange={this.onChange} current={this.state.current} total={50} />;
   }
 }
 

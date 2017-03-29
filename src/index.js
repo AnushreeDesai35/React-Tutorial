@@ -1,18 +1,51 @@
-/*import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Layout from "./components/Layout";
+import {Router, Route,hashHistory} from 'react-router';
 
-ReactDOM.render(<Layout/>,document.getElementById('app'));
-*/
-
-import {createStore} from 'redux';
-
-reducer(state,action){
-return "foo";
+class MainLayout extends Component{
+  render(){
+    return (
+      <div className="app">
+        <header className="primary-header"><header>
+        <aside className="primary-aside"></aside>
+        <main>
+          {this.props.children}
+        </main>
+      </div>
+    );
+  }
 }
 
-const store  = createStore(reducer, 0);
+class SearchLayout extends Component{
+  render(){
+    return (
+        <div className="search">
+          <header className="search-header"></header>
+          <div className="results">
+            {this.props.children}
+          </div>
+          <div className="search-footer pagination"></div>
+        </div>
+      );
+  }
+}
 
-store.subscribe(()=> {
-  console.log("Store changed : "+store.getState());
-})
+class UserList extends Component{
+  render(){
+    return(
+      <ul className="user-list">
+        <li>Dan</li>
+        <li>Ryan</li>
+        <li>Michael</li>
+      </ul>
+    );
+  }
+}
+
+ReactDOM.render((
+    <Router>
+      <Route path="/" component={Home} />
+      <Route path="/users" component={Users} />
+      <Route path="/widgets" component={Widgets} />
+    </Router>
+), document.getElementById('root'));
